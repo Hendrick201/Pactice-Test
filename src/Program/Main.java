@@ -66,9 +66,11 @@ public class Main {
 		Map<String, List<Employee>> employeeMap = groupByFunction(industryEmployeeList);
 
 		// Print employee grouped by function
+		System.out.println(" === Print grouped by function ===");
 		employeeMap.forEach((function, employees) -> {
 			System.out.println("=== " + function + " ====");
 			employees.forEach(System.out::println);
+			System.out.println(" ========================");
 			System.out.println();
 		});
 		
@@ -98,6 +100,12 @@ public class Main {
 		System.out.println("=== Total salary of all Employees ===");
 		BigDecimal totalSalary = industryEmployeeList.stream().map(Employee::getSalary).reduce(BigDecimal.ZERO, BigDecimal::add);
 		System.out.println("Total: " + String.format("R$ %,.2f", totalSalary));
+		System.out.println("==========================");
+		
+		//Print the number of minimum wages per employee
+		System.out.println("=== Number of minimum wages per employee ===");
+		BigDecimal minWage = new BigDecimal("1212.00");
+		printEmployeeWithWages(industryEmployeeList,minWage);
 		System.out.println("==========================");
 		
 
@@ -138,5 +146,15 @@ public class Main {
 	private static List<Employee> getByAlphabeticalOrder(List<Employee> employeeList) {
 		return employeeList.stream().sorted(Comparator.comparing(Employee::getName))
 				.collect(Collectors.toList());
+	}
+	
+	// Print employees with minimum Wages number
+	private static void printEmployeeWithWages(List<Employee> employeeList, BigDecimal minWage)
+	{
+		employeeList.stream().forEach(p -> {						//TODO dont forget HALF_UP latter
+			BigDecimal quantity = p.getSalary().divide(minWage,2,java.math.RoundingMode.HALF_UP);
+			System.out.println("Name: " + p.getName());
+			System.out.println("Minimum Wages: " + quantity);
+		});
 	}
 }
