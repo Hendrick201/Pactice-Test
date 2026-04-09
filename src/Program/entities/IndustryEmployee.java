@@ -32,7 +32,7 @@ public class IndustryEmployee extends Employee {
 		stringBuilder.append("Function: " + super.getFunction() + "\n");
 		nf.setMinimumFractionDigits(2);
 		nf.setMaximumFractionDigits(2);
-		stringBuilder.append("Salary:  "  + nf.format(getSalary()) + "\n");
+		stringBuilder.append("Salary: R$"  + nf.format(getSalary()) + "\n");
 		
 		return stringBuilder.toString();
 		

@@ -96,7 +96,8 @@ public class Main {
 		
 		//Print total salary of all Employees
 		System.out.println("=== Total salary of all Employees ===");
-		
+		BigDecimal totalSalary = industryEmployeeList.stream().map(Employee::getSalary).reduce(BigDecimal.ZERO, BigDecimal::add);
+		System.out.println("Total: " + String.format("R$ %,.2f", totalSalary));
 		System.out.println("==========================");
 		
 
