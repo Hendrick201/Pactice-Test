@@ -107,8 +107,6 @@ public class Main {
 		BigDecimal minWage = new BigDecimal("1212.00");
 		printEmployeeWithWages(industryEmployeeList,minWage);
 		System.out.println("==========================");
-		
-
 	}
 
 	// Add a Industry Employee
