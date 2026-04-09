@@ -20,14 +20,15 @@ public class Main {
 		Locale.setDefault(Locale.of("pt", "BR"));
 		List<Employee> industryEmployeeList = new ArrayList<Employee>();
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
+		
+		
 	}
 	//Add a Industry Employee
 	private static void addIndustryEmployee(String name, LocalDate birthDate, BigDecimal salary, String function, List<Employee> industryEmployeeList)
 	{
 		industryEmployeeList.add(new IndustryEmployee(name,birthDate, salary, function));
 	}
-	//Remove a Industry Employee
+	//Remove a Employee
 	private static void removeEmployeeByName(String name, List<Employee> employeeList)
 	{
 		employeeList.removeIf(p -> p.getName().equals("João"));
